@@ -1,0 +1,14 @@
+Creational Design Patterns:
+	It is mainly focused on the creation of objects. So for example they can make creation of big object easy and reusable. There are five different patterns that exist in Creational category with different usage :
+
+
+1.Singleton
+	Def :
+		With this pattern we ensure that we have one instance of object in runtime with one general global access.
+	Mine :
+		- It deals with the creation of the Object, Only one instance of a class will be create in a life time, and it will be used everywhere. 
+		- have to change the constrctor to private (So a new obj wont eb created). Then should have a static method which will return a instance (Not a new one (new Solution()) but This also a static variable define in the class)
+2.Abstract Factory
+3.Factory Method
+4.Builder
+5.Prototype
