@@ -1,0 +1,40 @@
+ public static void Run()
+        {
+           
+            RunProblem();
+            RunSolution();
+            
+
+        }
+
+        private static void RunProblem()
+        {
+             PrintProblemSeperator();
+
+
+
+
+              PrintProblemSeperator();
+        }
+
+        private static void RunSolution()
+        {
+            PrintSolutionSeperator();
+
+
+
+
+
+            PrintSolutionSeperator();
+
+        }
+
+        private static void PrintProblemSeperator()
+        {
+            Console.WriteLine("************** PROBLEM *****************");
+        }
+
+        private static void PrintSolutionSeperator()
+        {
+            Console.WriteLine("############## SOLUTION #################");
+        }
