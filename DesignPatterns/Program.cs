@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using DesignPatterns.Creational.SimpleFactory;
 using DesignPatterns.Creational.Singleton;
 using System.Diagnostics;
 
@@ -6,7 +7,7 @@ Console.WriteLine("Execution started");
 
 try
 {
-    ExecuteSingleton.Run();
+   new ExecuteSimpleFactory().Run();
 }
 catch(Exception ex)
 {

@@ -8,6 +8,13 @@ namespace DesignPatterns.Creational.Singleton
 {
     public class Problem
     {
+
+        /*
+             Whenever a new instanceis created a copy of this will be generated, So that we wont get the consistency accessing lsit element,
+            ie) In GetCurrentServerName() if we request, we will get the next server, But if the obj is different, Then we will get different server than the next one.
+            Beacuse each obj will have its own copy
+
+         */
         List<string> serversList = new List<string>();
 
         private int curServerIndex = 0;

@@ -10,5 +10,11 @@ Creational Design Patterns:
 		- have to change the constrctor to private (So a new obj wont eb created). Then should have a static method which will return a instance (Not a new one (new Solution()) but This also a static variable define in the class)
 2.Abstract Factory
 3.Factory Method
+	Def :  In Factory patterns we create the object of the Class without Exposing the Creation/Instantiation Logic to the User who wants to create the Object and then return the newly Created object using the Common Interface which is inherited  by the Class”.
+	Mine : 
+		- It deals with the creation of the object.
+		- The client should not aware what is the type of object it is going to created, rather it will just use the obj, which have a common interface.
+		- factoy is responsible for the type of obj that is created, Thus the Obj creational logic is not tightly coupled with Business logic
+		- So in future if the client require a new obj, Then there is no need to change in the Business logic, Only change in the factory, Thus aceheiving Open/Close principle
 4.Builder
 5.Prototype

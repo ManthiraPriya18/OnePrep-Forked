@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesignPatterns.Helpers.Common;
+using DesignPatterns.Helpers.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns.Creational.Singleton
 {
-    public static class ExecuteSingleton
+    public class ExecuteSingleton : IExecute
     {
         /* 
             Singleton:
@@ -18,15 +20,19 @@ namespace DesignPatterns.Creational.Singleton
          */
 
 
-        public static void Run()
+        public void Run()
         {
+            Common.PrintProblemSeperator();
             RunProblem();
+            Common.PrintProblemSeperator();
+            Common.PrintSolutionSeperator();
             RunSolution();
+            Common.PrintSolutionSeperator();
+
         }
 
-        private static void RunProblem()
+        public void RunProblem()
         {
-            PrintProblemSeperator();
 
             // Creating 2 new Objs, will create two new instance.
             Problem Table1 = new Problem();
@@ -37,12 +43,10 @@ namespace DesignPatterns.Creational.Singleton
                 Console.WriteLine("Current server for Table 2 is " + Table2.GetCurrentServerName());
             }
 
-            PrintProblemSeperator();
         }
 
-        private static void RunSolution()
+        public void RunSolution()
         {
-            PrintSolutionSeperator();
 
             //Getting the same instance no matter how many times we requested.
             Solution Table1 = Solution.GetInstance();
@@ -53,22 +57,9 @@ namespace DesignPatterns.Creational.Singleton
                 Console.WriteLine("Current server for Table 1 is " + Table1.GetCurrentServerName());
                 Console.WriteLine("Current server for Table 2 is " + Table2.GetCurrentServerName());
             }
-            PrintSolutionSeperator();
         }
 
-        private static void PrintProblemSeperator()
-        {
-            Console.WriteLine();
-            Console.WriteLine("************** PROBLEM *****************");
-            Console.WriteLine();
-        }
-
-        private static void PrintSolutionSeperator()
-        {
-            Console.WriteLine();
-            Console.WriteLine("############## SOLUTION #################");
-            Console.WriteLine();
-        }
+       
 
     }
 }
