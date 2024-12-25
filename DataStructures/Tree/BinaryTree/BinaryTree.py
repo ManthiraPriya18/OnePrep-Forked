@@ -108,6 +108,7 @@ class DepthFirstSearch:
         self.postorder_iteratively(root.left)
         self.postorder_iteratively(root.right)
         print(root.val,end="->")
+    
     def getLeafNodes(self,root):
         ans=[]
         stack=[]
@@ -125,6 +126,7 @@ class DepthFirstSearch:
                 break
         print(ans)
         return ans
+
 tree= create_binary_tree([1,2,3,4,5,6,7])
 dfs=DepthFirstSearch()
 dfs.postorder_iteratively(tree)

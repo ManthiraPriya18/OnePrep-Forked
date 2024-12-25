@@ -1,1 +1,16 @@
-Init
+Things to consider:
+    - This should give overview and indepth understanding of concepts and possibly can help others too.
+
+SQL:
+    - Simple to create in a new machine.
+    - Easy update the data while learning
+    Sol 1:
+        - Excel file should have the data,So each table will be there in different sheet
+            - SheetName = TableName
+            - 1st Col = ColumnName
+            - Rest = Rows
+        - Single Load Function in Python will do
+            - SQL Create script to create the table, Which will execute by Python to create those tables
+            - From Excel load those tables 
+        
+        - Folder wise SQL files
