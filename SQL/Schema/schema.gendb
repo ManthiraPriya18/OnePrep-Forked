@@ -1,0 +1,118 @@
+{
+    "GenetomId": "4578-1735242818188",
+    "LastModifiedOn": "2024/12/27 02:50:08",
+    "GenetomDBArray": [
+        {
+            "ProjectName": "SQL Learn",
+            "DataBaseName": "DatabaseName",
+            "LastModifiedOn": "2024/12/27 01:23:38",
+            "LruColorList": [],
+            "VersionKey": "2024/12/27 01:23:38",
+            "VersionDesc": "This version was created on 2024/12/27 01:23:38",
+            "Windowheight": 4000,
+            "WindowWidth": 4000,
+            "Tables": [
+                {
+                    "TableId": "3965-1735243149465",
+                    "TableName": "Guns",
+                    "TableNameDesc": "",
+                    "Color": "",
+                    "XPosition": 200,
+                    "YPosition": 200,
+                    "Columns": [
+                        {
+                            "ColumnId": "887-1735243157589",
+                            "ColumnName": "GunId",
+                            "ColumnType": "int",
+                            "ColumnDesc": "Auto incremnet PK"
+                        },
+                        {
+                            "ColumnId": "3580-1735243172412",
+                            "ColumnName": "GunName",
+                            "ColumnType": "string",
+                            "ColumnDesc": ""
+                        },
+                        {
+                            "ColumnId": "803-1735243182827",
+                            "ColumnName": "GunType",
+                            "ColumnType": "string",
+                            "ColumnDesc": ""
+                        },
+                        {
+                            "ColumnId": "8615-1735243195089",
+                            "ColumnName": "MagMaxSize",
+                            "ColumnType": "int",
+                            "ColumnDesc": ""
+                        }
+                    ]
+                },
+                {
+                    "TableId": "3779-1735242929543",
+                    "TableName": "PlayerFriends",
+                    "TableNameDesc": "",
+                    "Color": "",
+                    "XPosition": 432,
+                    "YPosition": 412,
+                    "Columns": [
+                        {
+                            "ColumnId": "4400-1735242929543",
+                            "ColumnName": "PlayerId",
+                            "ColumnType": "int",
+                            "ColumnDesc": "FK"
+                        },
+                        {
+                            "ColumnId": "5580-1735242977424",
+                            "ColumnName": "FriendId",
+                            "ColumnType": "int",
+                            "ColumnDesc": "FK"
+                        }
+                    ]
+                },
+                {
+                    "TableId": "35-1735243044277",
+                    "TableName": "PlayerGuns",
+                    "TableNameDesc": "",
+                    "Color": "",
+                    "XPosition": 133,
+                    "YPosition": 91,
+                    "Columns": [
+                        {
+                            "ColumnId": "9727-1735243054451",
+                            "ColumnName": "PlayerId",
+                            "ColumnType": "Int",
+                            "ColumnDesc": "FK"
+                        },
+                        {
+                            "ColumnId": "3027-1735243099345",
+                            "ColumnName": "GunId",
+                            "ColumnType": "int",
+                            "ColumnDesc": "FK"
+                        }
+                    ]
+                },
+                {
+                    "TableName": "Players",
+                    "TableId": "3779-1735242818188",
+                    "Color": "",
+                    "TableNameDesc": "A table used to have players Data",
+                    "XPosition": 275,
+                    "YPosition": 192,
+                    "Columns": [
+                        {
+                            "ColumnId": "1928-1735242818188",
+                            "ColumnName": "PlayerId",
+                            "ColumnType": "int",
+                            "ColumnDesc": "Auto incremented PK"
+                        },
+                        {
+                            "ColumnId": "9315-1735242818188",
+                            "ColumnName": "PlayerName",
+                            "ColumnType": "string",
+                            "ColumnDesc": "Name of the player"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
