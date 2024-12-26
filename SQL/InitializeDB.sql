@@ -1,5 +1,5 @@
 ----------- Temp table create STARTS ----------
-If(OBJECT_ID('tempdb..#temp') Is Not Null)
+If(OBJECT_ID('tempdb..#Temp') Is Not Null)
 	Begin
 		Drop Table #Temp
 	End
@@ -7,8 +7,19 @@ If(OBJECT_ID('tempdb..#temp') Is Not Null)
 		statusBit bit
 	)
     INSERT INTO #Temp (statusBit) VALUES (0);
-
     PRINT 'TEMP TABLE CREATED and 1 row inserted!'
+
+IF(OBJECT_ID('tempdb..#StatusTemp') Is Not Null)
+    BEGIN 
+		Drop Table #StatusTemp
+	End
+	create table #StatusTemp(
+		TableName nvarchar(100),
+        CreationStatus bit ,
+        InsertionStatus bit
+	)
+    PRINT 'TEMP TABLE For Table status is created'
+
 ----------- Temp table create ENDS ----------
 
 ----------- Schema create STARTS ----------
@@ -18,15 +29,21 @@ IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'Gen_Schema')
         SET @sql = 'CREATE SCHEMA Gen_Schema;'
         EXEC sp_executesql @sql;
         PRINT 'Schema Created successfully!';
+        insert into #StatusTemp values ('Gen_Schema',1,1)
     END
     ELSE
-        PRINT 'x-x SCHEMA ALREADY EXISTS!';
+        BEGIN
+            PRINT 'x-x SCHEMA ALREADY EXISTS!';
+            insert into #StatusTemp values ('Gen_Schema',0,0)
+        END
+
 GO -- Go will tell the SQL server that it till now it should execute in a seperate batch, then the below one as a seperate batch
 ----------- Schema create ENDS ----------
 
 ----------- Creation of Table STARTS ----------
 BEGIN TRY 
     BEGIN TRANSACTION;
+    insert into #StatusTemp values ('Players',0,0)
 
     IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Players' AND schema_id = SCHEMA_ID('Gen_Schema'))
         BEGIN
@@ -38,6 +55,7 @@ BEGIN TRY
                     LastPlayedOn DateTime NOT NULL,
                     INDEX IX_Players_PlayerId (PlayerId)
                 );
+                update #StatusTemp set CreationStatus=1 where TableName='Players'
             PRINT 'Players Table created Successfully!'
         END
     ELSE
@@ -62,15 +80,20 @@ IF EXISTS (SELECT 1 FROM #Temp WHERE statusBit = 1)
 BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
-        
-        Insert Into [Gen_Schema].[Players] 
-            values  ('Thiru','G RabiT',GETDATE()),
-                    ('Krishna','BeaR',GETDATE()),
-                    ('Radha','Sweety',GetDate()),
-                    ('Nila','MoonLight',GetDate()),
-                    ('Venba','Princess',GetDate())
-        PRINT 'Insertion in Players Table is successful'
-        
+        IF NOT EXISTS (SELECT 1 FROM [Gen_Schema].[Players])
+        BEGIN
+            Insert Into [Gen_Schema].[Players] 
+                values  ('Thiru','G RabiT',GETDATE()),
+                        ('Krishna','BeaR',GETDATE()),
+                        ('Radha','Sweety',GetDate()),
+                        ('Nila','MoonLight',GetDate()),
+                        ('Venba','Princess',GetDate())
+            PRINT 'Insertion in Players Table is successful'
+            update #StatusTemp set InsertionStatus=1 where TableName='Players'
+
+        END
+        ELSE 
+            PRINT 'x-x Data already exists in Players Table, Hence skipping insertion'
         COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
@@ -81,13 +104,21 @@ END
 ELSE
 	PRINT 'x-x CANNOT ABLE TO INSERT SINCE PREV STEP FAILS'
 GO
----------Inserting STARTS ---------------
+---------Inserting ENDS ---------------
 
 -----------Destructing Temp Table STARTS---------------
+
 If(OBJECT_ID('tempdb..#temp') Is Not Null)
 	Begin
 		Drop Table #Temp
         PRINT 'TEMP TABLE DROPPED!'
+	End
+    Go
+select * from #StatusTemp
+If(OBJECT_ID('tempdb..#StatusTemp') Is Not Null)
+	Begin
+		Drop Table #StatusTemp
+        PRINT 'StatusTemp TABLE DROPPED!'
 	End
     Go
 -----------Destructing Temp Table ENDS-----------------
