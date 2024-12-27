@@ -1,0 +1,17 @@
+﻿
+SOLID Principles:
+	 Design principles intended to make software designs more understandable, flexible, and maintainable. 
+	 These principles help developers create systems that are easy to scale, test, and modify without introducing unintended side effects.
+
+	 Advatages of following Solid principles:
+		- Improves Maintainability
+		- Facilitates Testing
+		- Promotes Reusability
+		- Reduces Coupling
+		
+		- Incase of introducing new features to an application. The new developer doesnt need to be completely aware of the entire system, inorder to introduce a
+		new functionality or feature. Since everything will be decoupled and follow a strict principles.
+
+Single Responsibility Principle:
+	- Everything in that class should be related to a single purpose.
+	- There may be many members/methods in class as long as they relate to a single responsibility.
