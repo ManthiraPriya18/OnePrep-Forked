@@ -15,3 +15,7 @@ SOLID Principles:
 Single Responsibility Principle:
 	- Everything in that class should be related to a single purpose.
 	- There may be many members/methods in class as long as they relate to a single responsibility.
+
+Open Close Principle:
+	- A class should be open for extension but closed for modification.
+	- Here Extension is can have newly created methods which can serve new purpose, at the same time the existing implementation should not be modified.
