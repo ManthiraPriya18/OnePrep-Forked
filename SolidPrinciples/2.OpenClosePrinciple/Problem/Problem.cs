@@ -10,7 +10,7 @@ namespace SolidPrinciples._2.OpenClosePrinciple.Problem
         In AppUsersService, we have a method called CheckIfUserValid, This method is responsible to validate user across different role.
         Assume that we done with our Implementation with two roles (Admin & User). Now in future we need to introdcue one more role.
         Now we have to modify the existing function, which violates the rule - Open Close Principle
-        This class is Open for modification (Like fixing bugs), and its Open for modification (It should close for modification)
+        This class is Open for modification (Like fixing bugs or new methods), and its Open for modification (It should close for modification)
         Modification here means additional logic in the existing function
      */
     public class AppUsersService

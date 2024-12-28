@@ -1,4 +1,11 @@
 ﻿
+In the Problem.cs file,  The Probelem is defined -  How it was implemented and why it violates the respective principle - as a comment
+In the Solution.cs file, The Solution is defined -  How it was implemented and how it follows the respective principle - as a comment
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Summary:
+
 SOLID Principles:
 	 Design principles intended to make software designs more understandable, flexible, and maintainable. 
 	 These principles help developers create systems that are easy to scale, test, and modify without introducing unintended side effects.
@@ -19,3 +26,8 @@ Single Responsibility Principle:
 Open Close Principle:
 	- A class should be open for extension but closed for modification.
 	- Here Extension is can have newly created methods which can serve new purpose, at the same time the existing implementation should not be modified.
+
+
+Interface Segregation Principle:
+	- A class should only implement an interface if it actually needs and uses the methods defined in it.
+	- Instead of having one big interface with many methods, break it into smaller, more specific ones.
