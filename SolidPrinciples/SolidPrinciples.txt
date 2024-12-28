@@ -31,3 +31,12 @@ Open Close Principle:
 Interface Segregation Principle:
 	- A class should only implement an interface if it actually needs and uses the methods defined in it.
 	- Instead of having one big interface with many methods, break it into smaller, more specific ones.
+
+Dependency Inversion Principle:
+	- High-level modules (e.g., business logic) shouldn't directly depend on low-level modules (e.g., database or external systems).
+	- Instead, both should rely on an interface or abstract class. This makes the system flexible and easier to maintain.
+	- Think of a wall socket and a plug:
+		- The wall socket doesn’t depend on the design of a specific appliance (low-level module).
+			- No matter what the low-level module is (Mixie, Grinder, Charger, AC etc), The socket remains same.
+		- Instead, both the socket and appliances adhere to a common standard (interface).
+		- This allows you to plug in any appliance without modifying the socket.

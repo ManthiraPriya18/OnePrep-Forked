@@ -1,6 +1,7 @@
 ﻿using SolidPrinciples._1.SingleResponsibilityPrinciple;
 using SolidPrinciples._2.OpenClosePrinciple;
 using SolidPrinciples._4.InterfaceSegregationPrinciple;
+using SolidPrinciples._5.DependencyInversionPrinciple;
 using System.Diagnostics;
 
 Console.WriteLine("Execution started");
@@ -9,7 +10,8 @@ try
 {
     //new ExecuteSRP().Run();
     //new ExecuteOCP().Run();
-    new ExecuteISP().Run();
+    //new ExecuteISP().Run();
+    new ExecuteDSP().Run();
 }
 catch (Exception ex)
 {
