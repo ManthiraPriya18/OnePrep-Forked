@@ -27,6 +27,15 @@ Open Close Principle:
 	- A class should be open for extension but closed for modification.
 	- Here Extension is can have newly created methods which can serve new purpose, at the same time the existing implementation should not be modified.
 
+Liskov Subsitution Principle:
+	- This principle main objective is avoid throwing exceptions in a system when inheritance is not used in a recommended way.
+	- If we have a base class and a derived class (class Derived : Base), Then if Derived class is not a proper subsitue for Base class and vice versa
+	  then the implementation of inheritance should be re consider. - If the derived class has its own implementation which might leads to throw error or
+	  any thing, but the base class implementation is a proper one.
+	- Basically, inheritance is intended to be used between classes that have enough similarities, 
+	  If the derived classes start having properties and methods that don’t make sense anymore for them, even they come from a derived class.
+	- So if the subsitution is not yeild proper result, then the inheritance between those classe should be remove, and both can extends an interface
+	  (Check Example under 3.LiskovSubsitutionPrinciple)
 
 Interface Segregation Principle:
 	- A class should only implement an interface if it actually needs and uses the methods defined in it.
