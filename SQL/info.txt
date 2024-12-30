@@ -1,0 +1,6 @@
+-----------------------------
+- Just execute the InitializeDB.sql file, It will create the tables and will insert some dummy data.
+- Refer the schema diagram, DB Schema file also included as Schema\schema.gendb
+    - Can load the schema file https://thirudev50.github.io/devtools/#/dbschema
+
+- The table, DB Schema, Dummy data is purposefully kept as simple as possible for learning purpose
