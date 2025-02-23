@@ -1,0 +1,14 @@
+﻿----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+Encapsulation:
+	- Hide data and restricting direct access to it, by exposing new methods or allowing controlled access through getters, setters.
+	- It helps in data security, code maintainability, and preventing unintended modifications.
+	- we can use Init when we define an obj, So the feild will be initialized only at the time of creation.
+	Note:
+		- Making the feild private & expose a public feild with keeping setter as private only help us in case of string, bool, int etc.
+		- For List<Objects>, though if we keep the setters as private, the objects can be modified since it is referenced.
+		- For this either we can use record (Without getter & setter) instead of class for models or
+		  we can have the prop by init instead of set eg) public double Balance {get; init;} -> The value wont change after
+		  the object creation.
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
