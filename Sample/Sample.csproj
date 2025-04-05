@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="1.Abstraction\" />
-    <Folder Include="3.Inheritance\" />
-  </ItemGroup>
-
 </Project>

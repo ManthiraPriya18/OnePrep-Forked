@@ -32,5 +32,12 @@ namespace ObjectOrientedProgramming.Helpers.Common
             Console.WriteLine("############## SOLUTION EXECUTION ENDS   #################");
             Console.WriteLine();
         }
+
+        public static void PrintSeperator()
+        {
+            Console.WriteLine();
+            Console.WriteLine("###########################################################");
+            Console.WriteLine();
+        }
     }
 }

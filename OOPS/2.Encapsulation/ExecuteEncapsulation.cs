@@ -1,5 +1,4 @@
-﻿using ObjectOrientedProgramming._2.Encapsulation.Problem;
-using ObjectOrientedProgramming._2.Encapsulation.Solution;
+﻿
 using ObjectOrientedProgramming.Helpers.Common;
 using ObjectOrientedProgramming.Interface.Common;
 using System;

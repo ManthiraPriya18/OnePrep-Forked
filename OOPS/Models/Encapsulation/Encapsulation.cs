@@ -60,7 +60,7 @@ namespace ObjectOrientedProgramming.Models.Encapsulation
         }
     }
      */
-    public record BankCustomerRecord2(
+    public record BankCustomerRecord(
         int UserId,
         int Pin,
         double Balance,

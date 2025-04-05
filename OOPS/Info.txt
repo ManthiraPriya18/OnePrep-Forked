@@ -12,3 +12,51 @@ Encapsulation:
 		  the object creation.
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
+Polymorphisim:
+	- Same object will be give different behaviour under different condition.
+	- Allows objects of different types to be treated as objects of a common base type, or methods to behave differently based on context.
+	- Enables flexibility and reusability in code by handling diverse objects uniformly or varying behavior at runtime/compile time.
+		* Compile Time Polymorphism (Static Binding) :
+			** Method Overloading:
+				- The method name is same, But the implementation will be differ based on params
+				- Eg) Add(int a,int b) | Add(int a, int b, int c) | Add(double a, double b)
+			** Operator Overloading:
+				- We can give custom implementation for operators like +,-,*,%,/,==,!=,Bitwise AND, Bitwise OR, 
+				- If we want to add two vector class, instead of having a method which will take that as params, we can override the '+' operator
+		* Run Time Polymorphism (Dynamic Binding):
+			** Method Overriding:
+				- Base class method marked with 'virtual', derived class uses 'override' to change behavior.
+				- Actual method executed depends on the object type at runtime, not the reference type.
+				- Enables uniform handling of different subclasses via a common base type.
+				- Eg) Shape.Draw() → overridden in Circle, Rectangle, etc. → behaves differently at runtime.
+			** Abstract class/methods:
+				- Used when base class shouldn’t have a concrete implementation for some methods.
+				- Derived classes are forced to implement the behavior.
+
+				- Problem Without Abstract Class:
+					- Methods can get hidden instead of overridden.
+					- Polymorphism breaks: base method is always called.
+					- No enforcement for derived classes to implement key behavior.
+
+				- With Abstract Class:
+					- Base class marked abstract.
+					- Abstract methods have no body.
+					- Derived classes must override abstract methods.
+					- Enables clean polymorphic behavior at runtime.
+			** Interface
+				- Defines a contract with no implementation.
+				- Classes must implement all members.
+				- Enables runtime polymorphism and multiple inheritance.
+
+				- Problem Without Interface:
+					- No way to treat different classes uniformly.
+					- Can't group unrelated classes (e.g., UpiPayment & CardPayment).
+					- Leads to duplicate code or bad type checks.
+
+				- With Interface:
+					- Use IPayment as a common type
+					- Pass any implementing class (e.g., UpiPayment, CardPayment) to a method.
+					- Call is resolved at runtime, based on actual object.
+
+
+		
