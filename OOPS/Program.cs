@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedProgramming._1.Abstraction;
 using ObjectOrientedProgramming._2.Encapsulation;
+using ObjectOrientedProgramming._3.Inheritance;
 using ObjectOrientedProgramming._4.Polymorphism;
 using System.Diagnostics;
 
@@ -9,7 +10,8 @@ try
 {
     //new ExecuteEncapsulation().Run();
     //new ExecutePolymorphism().Run();
-    new ExecuteAbstraction().Run();
+    //new ExecuteAbstraction().Run();
+    new ExecuteInheritance().Run();
 }
 catch (Exception ex)
 {

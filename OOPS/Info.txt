@@ -40,6 +40,33 @@ Encapsulation:
 		  we can have the prop by init instead of set eg) public double Balance {get; init;} -> The value wont change after
 		  the object creation.
 ----------------------------------------------------------------------------------------
+Inheritance:
+	- Inheritance allows a class (child) to acquire properties and behaviors (methods) from another class (parent).
+	- Can have a method or prop in parent class, which will be consumed/override by child class.
+	- If class Child : Parent, and Parent have some params in construtor, then we can pass via base, ie) public Child : base (..parent cons param) { }
+	- Only Single Inheritance, Multilevel Inheritance  (A → B → C), Hierarchical Inheritance (One base, multiple derived classes) possible
+	  Multiple Inheritance is not possible in C# (Multipl Inheritance can be acheived by Interface)
+
+	* Single Inheritance: (A:B)
+		- One base class, one derived class.
+		- If same method available in both parent & child,and it is decalred as virtual in parent and it is overrdided in child, Then only the method in child can be invoke,
+		  We need to expose one more method which will interanlly call the base class implementation.
+		- If same method available in both parent & child, and it is not declared as virtual in parent, then if we call the method,
+		  the one defined in the child will be call in both of this case Animal animal = new Dog(), Dog dog = new Dog() [See examples in SingleInheritance]
+		- If same method available in both parent & child, and it is not declared as virtual in parent, but decalred as new in child,
+		  the by default child implementations will be called, we can call the parent implementation by casting
+
+	* Multilevel Inheritance: (A → B → C)
+		- Almost everything same as Single inheritance.
+		- In multiple level inheritance, there is a possibility that same method is being overriden in all the classes,
+		  we can prevent the overrding by sealed method. (Sealed will be applicable only to already overriden method)
+
+	* Hierarchical Inheritance: (A->B), (A->C)
+		- Almost everything same as Single inheritance & Multilevel Inheritance.
+		- Only thing is a Single parent here will have multiple children.
+		- There is no relationship between childrens. i.e) We cannot access any siblings method from any siblings.
+		- Hence it will be treated as Only Parent->Child relationship
+
 ----------------------------------------------------------------------------------------
 Polymorphisim:
 	- Same object will be give different behaviour under different condition.
