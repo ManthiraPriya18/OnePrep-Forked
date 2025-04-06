@@ -1,4 +1,33 @@
 ﻿----------------------------------------------------------------------------------------
+Abstraction:
+	- Hiding implementation details and showing only the essential features of an object using Abstract or Interface.
+	- Hiding complexity using abstract classes or interfaces. Only essential features are exposed.
+	
+	- Without Abstraction:
+		- Tight coupling: Code is dependent on specific implementations.
+		- Code duplication: Repeated logic across classes.
+		- Difficult maintenance: Changes in implementation can break many areas.
+		- Poor scalability: Hard to extend functionalities cleanly.
+	- With Abstraction:
+		- Hide complexity: User doesn’t need to know how things work.
+		- Flexible structure: Swap implementations easily.
+		- Separation of concerns: Keeps code clean and modular.
+
+	* Abstract Class & Methods:
+		- The class will extend a common abstract class, where the abstract methods will be forced to implement.
+			- Car & Bike class extends Abstract class (Vehicle) with a abstract method called 'StartEngine', now Car & Bike will be forced to implement that.
+			- Hence in other classes, instead of using Car & Bike, we can use Vehicle class [Vehicle car = new Car()], and can perform 'StartEngine' operation.
+			- Thus attaining abstraction by Hiding of implementation of Car & Bike 'StartEngine', bt expose that using Vehicle class and it will be
+			  determine at the runtime based on the object, Thus attaining flexible & extendable.
+
+	* Interface:
+		- Interface also will fix the same problem which we fixed using Abstract class & method but by a different approach
+		- The class will extend a common interface and 'StartEngine' methods will be forced to implement as a contract.
+			- Car & Bike class extends IVehicle, now Car & Bike will be forced to implement that.
+			- Hence in other classes, instead of using Car & Bike, we can use IVehicle class [IVehicle car = new Car()], and can perform 'StartEngine' operation.
+			- Thus attaining abstraction by Hiding of implementation of Car & Bike 'StartEngine', bt expose that using Vehicle class and it will be
+			  determine at the runtime based on the object, Thus attaining flexible & extendable[In future Truck class, Train Class etc]
+
 ----------------------------------------------------------------------------------------
 Encapsulation:
 	- Hide data and restricting direct access to it, by exposing new methods or allowing controlled access through getters, setters.
