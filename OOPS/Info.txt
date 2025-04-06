@@ -1,5 +1,5 @@
 ﻿----------------------------------------------------------------------------------------
-Abstraction:
+Abstraction: 
 	- Hiding implementation details and showing only the essential features of an object using Abstract or Interface.
 	- Hiding complexity using abstract classes or interfaces. Only essential features are exposed.
 	
