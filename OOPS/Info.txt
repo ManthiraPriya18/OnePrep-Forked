@@ -1,0 +1,118 @@
+﻿----------------------------------------------------------------------------------------
+Abstraction: 
+	- Hiding implementation details and showing only the essential features of an object using Abstract or Interface.
+	- Hiding complexity using abstract classes or interfaces. Only essential features are exposed.
+	
+	- Without Abstraction:
+		- Tight coupling: Code is dependent on specific implementations.
+		- Code duplication: Repeated logic across classes.
+		- Difficult maintenance: Changes in implementation can break many areas.
+		- Poor scalability: Hard to extend functionalities cleanly.
+	- With Abstraction:
+		- Hide complexity: User doesn’t need to know how things work.
+		- Flexible structure: Swap implementations easily.
+		- Separation of concerns: Keeps code clean and modular.
+
+	* Abstract Class & Methods:
+		- The class will extend a common abstract class, where the abstract methods will be forced to implement.
+			- Car & Bike class extends Abstract class (Vehicle) with a abstract method called 'StartEngine', now Car & Bike will be forced to implement that.
+			- Hence in other classes, instead of using Car & Bike, we can use Vehicle class [Vehicle car = new Car()], and can perform 'StartEngine' operation.
+			- Thus attaining abstraction by Hiding of implementation of Car & Bike 'StartEngine', bt expose that using Vehicle class and it will be
+			  determine at the runtime based on the object, Thus attaining flexible & extendable.
+
+	* Interface:
+		- Interface also will fix the same problem which we fixed using Abstract class & method but by a different approach
+		- The class will extend a common interface and 'StartEngine' methods will be forced to implement as a contract.
+			- Car & Bike class extends IVehicle, now Car & Bike will be forced to implement that.
+			- Hence in other classes, instead of using Car & Bike, we can use IVehicle class [IVehicle car = new Car()], and can perform 'StartEngine' operation.
+			- Thus attaining abstraction by Hiding of implementation of Car & Bike 'StartEngine', bt expose that using Vehicle class and it will be
+			  determine at the runtime based on the object, Thus attaining flexible & extendable[In future Truck class, Train Class etc]
+
+----------------------------------------------------------------------------------------
+Encapsulation:
+	- Hide data and restricting direct access to it, by exposing new methods or allowing controlled access through getters, setters.
+	- It helps in data security, code maintainability, and preventing unintended modifications.
+	- we can use Init when we define an obj, So the feild will be initialized only at the time of creation.
+	Note:
+		- Making the feild private & expose a public feild with keeping setter as private only help us in case of string, bool, int etc.
+		- For List<Objects>, though if we keep the setters as private, the objects can be modified since it is referenced.
+		- For this either we can use record (Without getter & setter) instead of class for models or
+		  we can have the prop by init instead of set eg) public double Balance {get; init;} -> The value wont change after
+		  the object creation.
+----------------------------------------------------------------------------------------
+Inheritance:
+	- Inheritance allows a class (child) to acquire properties and behaviors (methods) from another class (parent).
+	- Can have a method or prop in parent class, which will be consumed/override by child class.
+	- If class Child : Parent, and Parent have some params in construtor, then we can pass via base, ie) public Child : base (..parent cons param) { }
+	- Only Single Inheritance, Multilevel Inheritance  (A → B → C), Hierarchical Inheritance (One base, multiple derived classes) possible
+	  Multiple Inheritance is not possible in C# (Multipl Inheritance can be acheived by Interface)
+
+	* Single Inheritance: (A:B)
+		- One base class, one derived class.
+		- If same method available in both parent & child,and it is decalred as virtual in parent and it is overrdided in child, Then only the method in child can be invoke,
+		  We need to expose one more method which will interanlly call the base class implementation.
+		- If same method available in both parent & child, and it is not declared as virtual in parent, then if we call the method,
+		  the one defined in the child will be call in both of this case Animal animal = new Dog(), Dog dog = new Dog() [See examples in SingleInheritance]
+		- If same method available in both parent & child, and it is not declared as virtual in parent, but decalred as new in child,
+		  the by default child implementations will be called, we can call the parent implementation by casting
+
+	* Multilevel Inheritance: (A → B → C)
+		- Almost everything same as Single inheritance.
+		- In multiple level inheritance, there is a possibility that same method is being overriden in all the classes,
+		  we can prevent the overrding by sealed method. (Sealed will be applicable only to already overriden method)
+
+	* Hierarchical Inheritance: (A->B), (A->C)
+		- Almost everything same as Single inheritance & Multilevel Inheritance.
+		- Only thing is a Single parent here will have multiple children.
+		- There is no relationship between childrens. i.e) We cannot access any siblings method from any siblings.
+		- Hence it will be treated as Only Parent->Child relationship
+
+----------------------------------------------------------------------------------------
+Polymorphisim:
+	- Same object will be give different behaviour under different condition.
+	- Allows objects of different types to be treated as objects of a common base type, or methods to behave differently based on context.
+	- Enables flexibility and reusability in code by handling diverse objects uniformly or varying behavior at runtime/compile time.
+		* Compile Time Polymorphism (Static Binding) :
+			** Method Overloading:
+				- The method name is same, But the implementation will be differ based on params
+				- Eg) Add(int a,int b) | Add(int a, int b, int c) | Add(double a, double b)
+			** Operator Overloading:
+				- We can give custom implementation for operators like +,-,*,%,/,==,!=,Bitwise AND, Bitwise OR, 
+				- If we want to add two vector class, instead of having a method which will take that as params, we can override the '+' operator
+		* Run Time Polymorphism (Dynamic Binding):
+			** Method Overriding:
+				- Base class method marked with 'virtual', derived class uses 'override' to change behavior.
+				- Actual method executed depends on the object type at runtime, not the reference type.
+				- Enables uniform handling of different subclasses via a common base type.
+				- Eg) Shape.Draw() → overridden in Circle, Rectangle, etc. → behaves differently at runtime.
+			** Abstract class/methods:
+				- Used when base class shouldn’t have a concrete implementation for some methods.
+				- Derived classes are forced to implement the behavior.
+
+				- Problem Without Abstract Class:
+					- Methods can get hidden instead of overridden.
+					- Polymorphism breaks: base method is always called.
+					- No enforcement for derived classes to implement key behavior.
+
+				- With Abstract Class:
+					- Base class marked abstract.
+					- Abstract methods have no body.
+					- Derived classes must override abstract methods.
+					- Enables clean polymorphic behavior at runtime.
+			** Interface
+				- Defines a contract with no implementation.
+				- Classes must implement all members.
+				- Enables runtime polymorphism and multiple inheritance.
+
+				- Problem Without Interface:
+					- No way to treat different classes uniformly.
+					- Can't group unrelated classes (e.g., UpiPayment & CardPayment).
+					- Leads to duplicate code or bad type checks.
+
+				- With Interface:
+					- Use IPayment as a common type
+					- Pass any implementing class (e.g., UpiPayment, CardPayment) to a method.
+					- Call is resolved at runtime, based on actual object.
+
+
+		
